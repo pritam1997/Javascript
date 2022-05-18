@@ -1,0 +1,15 @@
+const getTodos = (callback) => {
+    callback(undefined, request.responseText);
+    callback('could not fetch data', undefined);
+};
+
+
+// use callback function
+getTodos((err, data)=> {
+    console.log('callback fired');
+    if(err){
+        console.log(err);
+    }
+    else
+        console.log(data);
+});
