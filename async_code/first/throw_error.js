@@ -1,5 +1,11 @@
 const getTodos = async () => {
-    const response = await fetch('/todos/luigi.json');
+
+    // file name is mistype
+    const response = await fetch('/todos/luigis.json');
+    
+    if (response.status !==200){
+        throw new Error('cannot fetch the data');
+    }
     const data = await response.json();
     return data;
 };
