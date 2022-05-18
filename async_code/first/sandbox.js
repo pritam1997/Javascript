@@ -12,13 +12,19 @@ const getTodos = (resource, callback) => {
                 reject('error getting resource ');
             }
         });
-        request.open("GET", 'todos.json');
+        request.open("GET", resource);
         request.send();    
     });
 };
 
-getTodos('todos/luiaklsdjgis.json').then( data => {
-    console.log('promise resolved: ', data);
+getTodos('/todos/luigi.json').then( data => {
+    console.log('promise 1 resolved: ', data);
+    return getTodos('/todos/mario.json');
+}).then( data => {
+    console.log('promise 2 resolved: ', data);
+    return getTodos('/todos/shaun.json');
+}).then( data => {
+    console.log('promise 3 resolved: ', data);
 }).catch( err => {
     console.log('promise rejected: ', err);
 });
