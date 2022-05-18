@@ -15,16 +15,32 @@ const getTodos = (resource, callback) => {
     request.send();
 };
 
-// nested callback function
-getTodos( 'todos/luigi.json' ,(err, data)=> {
-    console.log(data);
-    //
-    getTodos( 'todos/mario.json' ,(err, data)=> {
-        console.log(data);
-        //
-        getTodos( 'todos/shaun.json' ,(err, data)=> {
-            console.log(data);
-        });
-    });
 
+// promise example
+
+const getSomething = () => {
+
+    return new Promise((resolve, reject) => {
+        // fetch something
+        // if success
+        resolve('some data');
+        // if there is an error
+        reject('some error')
+    });
+};
+
+// return promise
+// getSomething().then((data) => {
+//     console.log(data);
+// },
+// (err)=> {
+//     console.log(err);
+// }
+// );
+
+
+getSomething().then(data =>{
+    console.log(data);
+}).catch(err => {
+    console.log(err);
 });
