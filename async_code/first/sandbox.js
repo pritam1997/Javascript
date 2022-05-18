@@ -18,7 +18,6 @@ const getTodos = (resource, callback) => {
 // nested callback function
 getTodos( 'todos/luigi.json' ,(err, data)=> {
     console.log(data);
-
     //
     getTodos( 'todos/mario.json' ,(err, data)=> {
         console.log(data);
